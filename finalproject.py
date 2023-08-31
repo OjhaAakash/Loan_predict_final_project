@@ -252,6 +252,18 @@ plt.show()
 joblib.dump(model2, 'decision_tree_model.pkl')
 
 
+Link to the Data set: https://www.kaggle.com/datasets/yasserh/loan-default-dataset
+H, M Yasser. “Loan Default Dataset.” Kaggle, 28 Jan. 2022, www.kaggle.com/datasets/yasserh/loan-default-dataset. 
+
+Resources:
+Alam, Mahbubul. “Multiple Regression as a Machine Learning Algorithm.” Medium, Towards Data Science, 13 Nov. 2020, towardsdatascience.com/multiple-regression-as-a-machine-learning-algorithm-a98a6b9f307b. Accessed 31 Aug. 2023. 
+Dynarski, Susan. “Why Students with Smallest Debts Have the Larger Problem.” The New York Times, 31 Aug. 2015, www.nytimes.com/2015/09/01/upshot/why-students-with-smallest-debts-need-the-greatest-help.html#:~:text=Most%20borrowers%20have%20small%20debts,percent%20end%20up%20in%20default. 
+Kniazieva, Yuliia. “How to Handle Money in the Digital Epoch.” High Quality Data Annotation for Machine Learning, Label Your Data, 10 Aug. 2023, labelyourdata.com/articles/machine-learning-in-finance. 
+Wigmore, Ivy. “What Is Machine Learning Algorithm?: Definition from TechTarget.” WhatIs.Com, TechTarget, 31 Aug. 2019, www.techtarget.com/whatis/definition/machine-learning-algorithm. 
+Wu, Wanjun. “Machine Learning Approaches to Predict Loan Default.” SCIRP, Scientific Research Publishing, 28 Sept. 2022, www.scirp.org/journal/paperinformation.aspx?paperid=120102. 
+
+
+
 
 
 
