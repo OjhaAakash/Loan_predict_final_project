@@ -268,13 +268,3 @@ plt.show()
 
 #Creating a link to app
 joblib.dump(model2, 'decision_tree_model.pkl')
-
-
-Link to the Data set: https://www.kaggle.com/datasets/yasserh/loan-default-dataset
-H, M Yasser. “Loan Default Dataset.” Kaggle, 28 Jan. 2022, www.kaggle.com/datasets/yasserh/loan-default-dataset. 
-
-
-
-
-
-
