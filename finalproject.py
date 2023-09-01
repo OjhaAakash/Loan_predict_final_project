@@ -1,3 +1,4 @@
+#Importing all the libraries
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,15 +14,19 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
 
 
-
+#Loading the dataset
 data = pd.read_csv('Loan_Default.csv')
 
+#Checking the head
 data.head(5)
 
+#Checking the tail
 data.tail(5)
 
+#Shape of the dataset
 data.shape
 
+#countplot to see the default status 0 is no and 1 is yes
 sns.countplot(x='Status', data = data)
 
 # Calculate the correlation matrix
@@ -49,6 +54,7 @@ plt.ylabel('Frequency')
 # Show the plot
 plt.show()
 
+#Crosstab for seeing the corelation between status and other columns
 pd.crosstab(data.loan_limit,data.Status).plot(kind='bar')
 plt.title('Column relation to the Status')
 plt.xlabel('loan_limit')
@@ -93,12 +99,15 @@ plt.ylabel('Age')
 plt.grid(True)
 plt.show()
 
+#To get the unique value in each column
 column_list = data.columns
 for column_name in column_list:
     print(data[column_name].unique())
 
+#Getting the data type for each column
 data.dtypes
 
+#getting a list for column with datatype object
 obj=[]
 for i in data.columns:
     if data[i].dtype=='object':
@@ -110,11 +119,13 @@ for i in range(len(obj)):
 for i in obj:
     print(i,'-',data[i].isnull().sum())
     
+#Value count for 0 and 1 in status column
 data['Status'].value_counts()
 
 for i in range(len(obj)):
     print(obj[i],data[obj[i]].unique())
 
+#Transforming the age from a series to a number
 data['age'] = data['age'].replace({
     '35-44': 39.5,  # Mean age of 35-44 range
     '25-34': 29.5,  # Mean age of 25-34 range
@@ -125,6 +136,7 @@ data['age'] = data['age'].replace({
     '<25': 20      # Assuming mean age of <25 range as 20
 })
 
+#Dropping the irrelevant columns
 data = data.drop(['ID','year','Gender','rate_of_interest','Interest_rate_spread','property_value','Upfront_charges','LTV','dtir1'],axis=1)
 
 data = data.dropna()
@@ -140,19 +152,24 @@ for i in data.columns:
 l=[]
 for i in obj:
     l.append(data.columns.get_loc(i))
-    
+
+#column split to get x and y variable for train test split
 x=data.iloc[:,:-1].values
 y=data.iloc[:,-1].values
 
+#Splitting the dataset 25/75 for train and test
 x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.25,random_state=0)
 
+#Using one hot encoder for preprocessing
 ct = ColumnTransformer(transformers=[('encoder',OneHotEncoder(),l)],remainder='passthrough')
 x_train = ct.fit_transform(x_train)
 x_test = ct.fit_transform(x_test)
 
+#Creating a object from class
 model1 = LogisticRegression()
 model1.fit(x_train, y_train)
 
+#Making predictions
 y_pred = model1.predict(x_test)
 print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
 
@@ -249,6 +266,7 @@ axes[1].legend()
 # Show the plots
 plt.show()
 
+#Creating a link to app
 joblib.dump(model2, 'decision_tree_model.pkl')
 
 
